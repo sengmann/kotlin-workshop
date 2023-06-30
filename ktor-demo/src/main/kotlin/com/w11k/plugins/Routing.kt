@@ -1,5 +1,6 @@
 package com.w11k.plugins
 
+import com.w11k.dto.Planet
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
