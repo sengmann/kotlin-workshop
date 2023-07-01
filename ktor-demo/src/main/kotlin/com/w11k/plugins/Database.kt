@@ -11,10 +11,12 @@ import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.nio.file.Paths.*
 
 fun Application.configureDatabases() {
+    val dbPath = get(System.getProperty("user.dir"), "db", "solar-system.db")
     val database = Database.connect(
-        url = "jdbc:sqlite:/home/sengmann/Projekte/tcc/workshops/kotlin-workshop/db/solar-system.db"
+        url = "jdbc:sqlite:$dbPath"
     )
     val planetService = PlanetService(database)
 
